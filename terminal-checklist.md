@@ -43,12 +43,36 @@ chsh -s $(which zsh) && \
 wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh && \
 sh install.sh
 
-vim ~/.zshrc
-# change theme
-##   ZSH_THEME="af-magic"
-#
-# add custom .env file
-# my custom env settings
-##   . ~/.rc
+# update plugins
+cp ~/.zshrc ~/.zshrc.bak
+sed -i 's/(git/(git zsh-autosuggestions command-not-found/' zshrc
+# check & confirm
+diff ~/.zshrc ~/.zshrc.bak
 
+# change theme
+sed -i 's/ZSH_THEME=.*$/ZSH_THEME="af-magic"/' ~/.zshrc
+# check & confirm
+diff ~/.zshrc ~/.zshrc.bak
+
+# load custom dot file
+##   . ~/.rc
+echo '. ~/.rc' >> ~/.zshrc
+
+```
+#### ~/.rc file
+```sh
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+```
+
+#### install stuff
+```sh
+vscode
+google-chrome
+docker
+obsidian
+syncthing
+ssh
+rclone
+kde config backup-restore
 ```
