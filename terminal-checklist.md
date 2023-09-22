@@ -45,12 +45,13 @@ sh install.sh
 
 # update plugins
 cp ~/.zshrc ~/.zshrc.bak
-sed -i 's/(git/(git zsh-autosuggestions command-not-found/' zshrc
+sed -i 's/(git/(git zsh-autosuggestions command-not-found/' ~/.zshrc
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 # check & confirm
 diff ~/.zshrc ~/.zshrc.bak
 
 # change theme
-sed -i 's/ZSH_THEME=.*$/ZSH_THEME="af-magic"/' ~/.zshrc
+sed -i 's/ZSH_THEME=.*$/ZSH_THEME="steeef"/' ~/.zshrc
 # check & confirm
 diff ~/.zshrc ~/.zshrc.bak
 
