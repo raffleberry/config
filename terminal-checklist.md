@@ -46,7 +46,7 @@ sh install.sh
 # update plugins
 cp ~/.zshrc ~/.zshrc.bak
 sed -i 's/(git/(git zsh-autosuggestions command-not-found/' ~/.zshrc
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 # check & confirm
 diff ~/.zshrc ~/.zshrc.bak
 
