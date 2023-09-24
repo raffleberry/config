@@ -28,4 +28,4 @@ BellType=0
 
 ```
 ### [Ubuntu 20.04](https://aka.ms/wslubuntu2004)
-`DISPLAY=$(hostname).local:0;`
+`export DISPLAY=$(hostname).local:0`
