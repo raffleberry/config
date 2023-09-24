@@ -29,3 +29,6 @@ BellType=0
 ```
 ### [Ubuntu 20.04](https://aka.ms/wslubuntu2004)
 `export DISPLAY=$(hostname).local:0`
+
+### [wsl launcher](https://github.com/cascadium/wsl-windows-toolbar-launcher#installing-and-running)
+
