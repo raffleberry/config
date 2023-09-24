@@ -28,4 +28,4 @@ BellType=0
 
 ```
 ### [Ubuntu 20.04](https://aka.ms/wslubuntu2004)
-`Docker Daemon works out-of-the-box`
+`DISPLAY=$(hostname).local:0;`
