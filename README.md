@@ -1,6 +1,6 @@
 # Windows
 ### [wsltty](https://github.com/mintty/wsltty)
-%APPDATA%\wsltty\config
+`%APPDATA%\wsltty\config`
 ```sh
 # To use common configuration in %APPDATA%\mintty, simply remove this file
 ThemeFile=dracula
@@ -21,7 +21,7 @@ Language=en_US
 BellType=0
 ```
 ### [vcxsrv](https://sourceforge.net/projects/vcxsrv/)
-config.xlaunch
+`config.xlaunch`
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <XLaunch WindowMode="MultiWindow" ClientMode="NoClient" LocalClient="False" Display="0" LocalProgram="xcalc" RemoteProgram="xterm" RemotePassword="" PrivateKey="" RemoteHost="" RemoteUser="" XDMCPHost="" XDMCPBroadcast="False" XDMCPIndirect="False" Clipboard="True" ClipboardPrimary="True" ExtraParams="" Wgl="True" DisableAC="True" XDMCPTerminate="False"/>
