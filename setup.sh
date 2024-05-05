@@ -78,7 +78,7 @@ sudo apt install ./docker-ce-cli.deb
 sudo apt install ./docker-buildx-plugin.deb
 sudo apt install ./docker-compose-plugin.deb
 
-wget -O onedriver.deb https://download.opensuse.org/repositories/home:/jstaf/xUbuntu_22.04/amd64/onedriver_0.14.1-1_amd64.deb
+sudo usermod -aG docker $USER
 
 # INSTALL DEBS <<<
 
@@ -101,6 +101,8 @@ ln -s ~/Apps/node-v20.12.2-linux-x64 ~/Apps/node
 
 echo '\nPATH=$PATH:~/Apps/node/bin/' >>  ~/.rc
 
+npm i -g bash-language-server
+
 # go
 wget https://go.dev/dl/go1.22.2.linux-amd64.tar.gz
 tar -xvf go1.22.2.linux-amd64.tar.gz -C ~/Apps/ && rm go1.22.2.linux-amd64.tar.gz
@@ -110,6 +112,8 @@ mv ~/Apps/go ~/Apps/go1.22.2.linux-amd64
 ln -s ~/Apps/go1.22.2.linux-amd64 ~/Apps/go
 
 echo '\nPATH=$PATH:~/Apps/go/bin/' >>  ~/.rc
+echo '\nPATH=$PATH:~/go/bin' >>  ~/.rc
 
+go install golang.org/x/tools/gopls@latest
 
 # TARS <<<
