@@ -101,7 +101,7 @@ tar -xvf node-v20.12.2-linux-x64.tar.xz -C ~/Apps/ && rm node-v20.12.2-linux-x64
 
 ln -s ~/Apps/node-v20.12.2-linux-x64 ~/Apps/node
 
-echo '\nPATH=$PATH:~/Apps/node/bin/' >>  ~/.rc
+echo '\nPATH=$PATH:~/Apps/node/bin/'
 
 npm i -g bash-language-server
 
@@ -113,8 +113,8 @@ mv ~/Apps/go ~/Apps/go1.22.2.linux-amd64
 
 ln -s ~/Apps/go1.22.2.linux-amd64 ~/Apps/go
 
-echo '\nPATH=$PATH:~/Apps/go/bin/' >>  ~/.rc
-echo '\nPATH=$PATH:~/go/bin' >>  ~/.rc
+echo '\nPATH=$PATH:~/Apps/go/bin/'
+echo '\nPATH=$PATH:~/go/bin'
 
 go install golang.org/x/tools/gopls@latest
 

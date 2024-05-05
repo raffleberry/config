@@ -1,0 +1,26 @@
+addToPath() {
+	if [ -d "$1" ]; then
+		if [[ "$PATH" != *"$1"* ]]; then
+			export PATH=$PATH:$1
+		fi
+	fi
+}
+
+addToPathFront() {
+	if [ -d "$1" ]; then
+		if [[ "$PATH" != *"$1"* ]]; then
+			export PATH=$1:$PATH
+		fi
+	fi
+}
+
+
+addToPath ~/Apps/bin
+
+addToPath ~/Apps/node/bin/
+
+addToPath ~/Apps/go/bin/
+
+addToPath ~/go/bin
+
+
