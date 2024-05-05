@@ -37,6 +37,13 @@ sudo apt install -y ttf-mscorefonts-installer
 # INSTALL & CONFIG PKGS <<<
 
 # CONFIG ZSH >>>
+
+# install oh-my-zsh
+chsh -s $(which zsh) && \
+wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh && \
+sh install.sh
+
+
 cp ~/.zshrc ~/.zshrc.bak
 sed -i 's/(git/(git zsh-autosuggestions command-not-found/' ~/.zshrc
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
@@ -67,25 +74,20 @@ sudo apt install -y ./code.deb
 
 # - docker
 wget -O containerd.io.deb https://download.docker.com/linux/ubuntu/dists/jammy/pool/stable/amd64/containerd.io_1.6.31-1_amd64.deb
-wget -O docker-ce.deb https://download.docker.com/linux/ubuntu/dists/jammy/pool/stable/amd64/docker-ce_26.1.1-1~ubuntu.22.04~jammy_amd64.deb
 wget -O docker-ce-cli.deb https://download.docker.com/linux/ubuntu/dists/jammy/pool/stable/amd64/docker-ce-cli_26.1.1-1~ubuntu.22.04~jammy_amd64.deb
+wget -O docker-ce.deb https://download.docker.com/linux/ubuntu/dists/jammy/pool/stable/amd64/docker-ce_26.1.1-1~ubuntu.22.04~jammy_amd64.deb
 wget -O docker-buildx-plugin.deb https://download.docker.com/linux/ubuntu/dists/jammy/pool/stable/amd64/docker-buildx-plugin_0.14.0-1~ubuntu.22.04~jammy_amd64.deb
 wget -O docker-compose-plugin.deb https://download.docker.com/linux/ubuntu/dists/jammy/pool/stable/amd64/docker-compose-plugin_2.27.0-1~ubuntu.22.04~jammy_amd64.deb
 
 sudo apt install ./containerd.io.deb
-sudo apt install ./docker-ce.deb
 sudo apt install ./docker-ce-cli.deb
+sudo apt install ./docker-ce.deb
 sudo apt install ./docker-buildx-plugin.deb
 sudo apt install ./docker-compose-plugin.deb
 
 sudo usermod -aG docker $USER
 
 # INSTALL DEBS <<<
-
-# install oh-my-zsh
-chsh -s $(which zsh) && \
-wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh && \
-sh install.sh
 
 # TARS >>>
 # setup tar install directory
