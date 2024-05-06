@@ -1,0 +1,16 @@
+ThemeFile=dracula
+CursorType=block
+Font=Consolas
+FontHeight=12
+AllowBlinking=yes
+FontSmoothing=full
+Locale=en_US
+Charset=UTF-8
+BackspaceSendsBS=yes
+DeleteSendsDEL=yes
+CtrlAltIsAltGr=yes
+AltGrIsAlsoAlt=yes
+CtrlShiftShortcuts=yes
+ClicksPlaceCursor=yes
+Language=en_US
+BellType=0
