@@ -119,3 +119,11 @@ echo '\nPATH=$PATH:~/go/bin'
 go install golang.org/x/tools/gopls@latest
 
 # TARS <<<
+
+
+# MISC
+
+# gnome
+gsettings set org.gnome.shell.window-switcher app-icon-mode 'app-icon-only'
+
+
