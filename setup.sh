@@ -126,4 +126,9 @@ go install golang.org/x/tools/gopls@latest
 # gnome
 gsettings set org.gnome.shell.window-switcher app-icon-mode 'app-icon-only'
 
+# kde
+
+qdbus org.kde.plasmashell /PlasmaShell evaluateScript 'lockCorona(!locked)'
+
+
 
