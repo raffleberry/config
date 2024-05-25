@@ -1,17 +1,29 @@
-# BYE BYE SNAP >>>
-sudo snap remove --purge firefox
-sudo snap remove --purge gnome-3-38-2004
-sudo snap remove --purge gnome-42-2204
-sudo snap remove --purge gtk-common-themes
-sudo snap remove --purge snapd-desktop-integration
-sudo snap remove --purge snap-store
-sudo snap remove --purge core20
-sudo snap remove --purge core22
-sudo snap remove --purge bare
-sudo snap remove --purge snapd
+echo "no !  don't run it"
+exit 1
+
+remove_snap() {
+wsl=$(cat /etc/*release* | grep -i wsl | wc -l)
+if [ $wsl -eq 0 ]
+then
+    sudo snap remove gtk-common-themes
+    sudo snap remove ubuntu-desktop-installer
+    sudo snap remove core22
+    sudo snap remove bare
+    sudo snap remove snapd
+else
+    sudo snap remove --purge firefox
+    sudo snap remove --purge gnome-3-38-2004
+    sudo snap remove --purge gnome-42-2204
+    sudo snap remove --purge gtk-common-themes
+    sudo snap remove --purge snapd-desktop-integration
+    sudo snap remove --purge snap-store
+    sudo snap remove --purge core20
+    sudo snap remove --purge core22
+    sudo snap remove --purge bare
+    sudo snap remove --purge snapd
+fi
 
 sudo apt purge -y snapd
-
 
 sudo cat <<EOF | sudo tee /etc/apt/preferences.d/nosnap.pref
 Package: snapd
@@ -24,15 +36,23 @@ sudo rm -rf /snap
 sudo rm -rf /var/snap
 sudo rm -rf /var/lib/snapd
 
+}
+
+install_i3() {
+    sudo apt install i3 feh
+}
+
+# BYE BYE SNAP >>>
+
+remove_snap
+install_i3
+
 # BYE BYE SNAP <<<
 
 # INSTALL & CONFIG PKGS >>>
-sudo apt install -y tldr zsh vim
-
+sudo apt install -y ttf-mscorefonts-installer tldr zsh vim
 tldr -u
-
-sudo apt install -y ttf-mscorefonts-installer
-
+sudo apt install -y 
 
 # INSTALL & CONFIG PKGS <<<
 
@@ -101,10 +121,6 @@ tar -xvf node-v20.12.2-linux-x64.tar.xz -C ~/Apps/ && rm node-v20.12.2-linux-x64
 
 ln -s ~/Apps/node-v20.12.2-linux-x64 ~/Apps/node
 
-echo '\nPATH=$PATH:~/Apps/node/bin/'
-
-npm i -g bash-language-server
-
 # go
 wget https://go.dev/dl/go1.22.2.linux-amd64.tar.gz
 tar -xvf go1.22.2.linux-amd64.tar.gz -C ~/Apps/ && rm go1.22.2.linux-amd64.tar.gz
@@ -112,9 +128,6 @@ tar -xvf go1.22.2.linux-amd64.tar.gz -C ~/Apps/ && rm go1.22.2.linux-amd64.tar.g
 mv ~/Apps/go ~/Apps/go1.22.2.linux-amd64
 
 ln -s ~/Apps/go1.22.2.linux-amd64 ~/Apps/go
-
-echo '\nPATH=$PATH:~/Apps/go/bin/'
-echo '\nPATH=$PATH:~/go/bin'
 
 go install golang.org/x/tools/gopls@latest
 
@@ -127,7 +140,6 @@ go install golang.org/x/tools/gopls@latest
 gsettings set org.gnome.shell.window-switcher app-icon-mode 'app-icon-only'
 
 # kde
-
 qdbus org.kde.plasmashell /PlasmaShell evaluateScript 'lockCorona(!locked)'
 
 

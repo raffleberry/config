@@ -1,0 +1,62 @@
+general {
+  colors = true
+  color_good = "#a3be8c"
+  color_bad  = "#bf616a"
+  color_degraded = "#ebcb8b"
+  interval = 10
+  separator = "|"
+}
+
+order += "wireless wlo1"
+order += "disk /"
+order += "battery 0"
+order += "cpu_temperature 0"
+order += "memory"
+order += "volume master"
+order += "tztime local"
+
+battery 0 {
+        format = "%status %percentage %remaining %emptytime"
+        format_down = "No battery"
+        status_chr = "⚡"
+        status_bat = "🔋"
+        status_unk = "?"
+        status_full = "😎 FULL"
+        path = "/sys/class/power_supply/BAT0/uevent"
+        low_threshold = 10
+}
+
+volume master {
+    format = "🎵: %volume"
+    device = "default"
+    mixer = "Master"
+    mixer_idx = 0
+}
+
+tztime local {
+        format = "%Y-%m-%d %H:%M:%S"
+}
+
+cpu_temperature 0 {
+    format = "T: %degrees °C"
+    path = "/sys/class/thermal/thermal_zone0/temp"
+}
+
+memory {
+        format = "🤯 %used/%total"
+        threshold_degraded = "10%"
+        format_degraded = "MEMORY: %free"
+}
+
+disk "/" {
+        format = "💾 %avail"
+}
+
+wireless wlo1 {
+    format_up = "%ip %quality"
+    format_down = "☡ WiFi"
+}
+
+read_file uptime {
+        path = "/proc/uptime"
+}
