@@ -3,7 +3,7 @@ exit 1
 
 remove_snap() {
 wsl=$(cat /etc/*release* | grep -i wsl | wc -l)
-if [ $wsl -eq 0 ]
+if [ $wsl -ne 0 ]
 then
     sudo snap remove gtk-common-themes
     sudo snap remove ubuntu-desktop-installer
@@ -40,6 +40,8 @@ sudo rm -rf /var/lib/snapd
 
 install_i3() {
     sudo apt install i3 feh
+    # let plasma handle notifications
+    sudo apt purge dunst
 }
 
 # BYE BYE SNAP >>>
