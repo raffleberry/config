@@ -193,6 +193,8 @@ bar {
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 
+for_window [class="dolphin"] floating enable
+for_window [class="ark"] floating enable
 for_window [class="plasma-systemmonitor"] floating enable
 for_window [class="plasma-discover"] floating enable
 for_window [class="discover"] floating enable
@@ -215,6 +217,7 @@ for_window [title="Desktop — Plasma"] kill, floating enable, border none
 
 exec_always --no-startup-id feh --bg-scale ~/.wallpaper
 
+focus_follows_mouse no
 
 
 
