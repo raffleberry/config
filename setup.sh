@@ -52,9 +52,11 @@ install_i3
 # BYE BYE SNAP <<<
 
 # INSTALL & CONFIG PKGS >>>
-sudo apt install -y ttf-mscorefonts-installer tldr zsh vim
+sudo apt install -y tldr zsh vim
 tldr -u
-sudo apt install -y 
+
+// fixing global menu on electron apps / vscode
+sudo apt install -y libdbusmenu-glib4
 
 # INSTALL & CONFIG PKGS <<<
 
