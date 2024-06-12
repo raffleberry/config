@@ -14,6 +14,7 @@ HISTCONTROL=ignoreboth
 
 # append to the history file, don't overwrite it
 shopt -s histappend
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
@@ -130,6 +131,18 @@ kdelock() {
     qdbus org.kde.plasmashell /PlasmaShell evaluateScript 'lockCorona(!locked)'
 }
 
+cpu() {
+	if [ -z "$1" ]; then
+		cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+	else
+		if [ "$1" = "0"  ]; then
+			echo powersave | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+		elif [ "$1" = "1"  ]; then
+			echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+		fi
+	fi
+}
+
 addToPath() {
         if [ -d "$1" ]; then
                 if [[ "$PATH" != *"$1"* ]]; then
@@ -153,9 +166,8 @@ addToPath ~/Apps/node/bin/
 
 addToPath ~/Apps/go/bin/
 
-addToPath ~/go/bin
+addToPath ~/Apps/go-bin/
 
-
-
+eval "$(fzf --bash)"
 
 

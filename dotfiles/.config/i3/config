@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 14
+font pango:ubuntu regular 11
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -153,7 +153,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -219,6 +219,13 @@ exec_always --no-startup-id feh --bg-scale ~/.wallpaper
 
 focus_follows_mouse no
 
+# mate
+exec --no-startup-id picom
+bindsym $mod+Shift+e exec --no-startup-id "mate-session-save --logout-dialog"
+for_window [class="engrampa"] floating enable
 
+# mate theme
+for_window [all] title_window_icon padding 1px
+client.focused #87a556 #5f743c #ffffff #dfef9f #5f743c
 
 
