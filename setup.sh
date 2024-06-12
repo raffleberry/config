@@ -39,15 +39,16 @@ sudo rm -rf /var/lib/snapd
 }
 
 install_i3() {
-    sudo apt install i3 feh
+    sudo apt install i3 feh picom
     # let plasma handle notifications
     sudo apt purge dunst
 }
 
+install_i3
+
 # BYE BYE SNAP >>>
 
 remove_snap
-install_i3
 
 # BYE BYE SNAP <<<
 
