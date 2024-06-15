@@ -171,3 +171,17 @@ addToPath ~/Apps/go-bin/
 eval "$(fzf --bash)"
 
 
+
+
+reso() {
+	ml=$(cvt $1 $2 | grep -i modeline | sed 's/Modeline //g')
+	m=$(echo $ml | cut -d' ' -f1)
+	
+
+	sudo xrandr --newmode $ml
+
+	sudo xrandr --addmode eDP $m
+
+}
+
+
