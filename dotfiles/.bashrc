@@ -170,8 +170,7 @@ addToPath ~/Apps/go-bin/
 
 eval "$(fzf --bash)"
 
-
-
+alias mymy='sudo systemctl start mysql.service'
 
 reso() {
 	ml=$(cvt $1 $2 | grep -i modeline | sed 's/Modeline //g')
@@ -181,6 +180,11 @@ reso() {
 	sudo xrandr --newmode $ml
 
 	sudo xrandr --addmode eDP $m
+	
+	echo "Put this in ~/.xprofile"
+	echo "xrandr --output eDP --set \"scaling mode\" \"Full aspect\""
+	echo "xrandr --newmode $ml"
+	echo "xrandr --addmode eDP $m"
 
 }
 
