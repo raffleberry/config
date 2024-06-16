@@ -1,6 +1,8 @@
 echo "no !  don't run it"
 exit 1
 
+sudo sed -i -e 's/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"console=ttyS0\"/g' /etc/default/grub
+
 remove_snap() {
 wsl=$(cat /etc/*release* | grep -i wsl | wc -l)
 if [ $wsl -ne 0 ]

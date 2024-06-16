@@ -171,6 +171,7 @@ addToPath ~/Apps/go-bin/
 eval "$(fzf --bash)"
 
 alias mymy='sudo systemctl start mysql.service'
+alias t='nohup kate ~/Documents/TODO &'
 
 reso() {
 	ml=$(cvt $1 $2 | grep -i modeline | sed 's/Modeline //g')
