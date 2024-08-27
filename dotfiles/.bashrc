@@ -14,7 +14,7 @@ HISTCONTROL=ignoreboth
 
 # append to the history file, don't overwrite it
 shopt -s histappend
-PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+PROMPT_COMMAND="history -a && echo \"========\" && date +%T && echo \"========\";$PROMPT_COMMAND"
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
@@ -159,6 +159,12 @@ addToPathFront() {
         fi
 }
 
+sourceFile() {
+        if [ -f "$1" ]; then
+        	source "$1"
+	fi
+}
+
 
 addToPath ~/Apps/bin
 
@@ -166,9 +172,13 @@ addToPath ~/Apps/node/bin/
 
 addToPath ~/Apps/go/bin/
 
-addToPath ~/Apps/go-bin/
+addToPath ~/Apps/go-bin/bin/
 
-eval "$(fzf --bash)"
+addToPath ~/.local/bin
+
+sourceFile ~/Apps/completions/leetgo.bash 
+
+#eval "$(fzf --bash)"
 
 alias mymy='sudo systemctl start mysql.service'
 alias t='nohup kate ~/Documents/TODO &'
