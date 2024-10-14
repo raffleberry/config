@@ -44,7 +44,7 @@ sudo rm -rf /var/lib/snapd
 }
 
 install_i3() {
-    sudo apt install i3 feh picom
+    sudo apt install i3 feh picom rofi
     # let plasma handle notifications
     sudo apt purge dunst
 }
